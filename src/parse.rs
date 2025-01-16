@@ -197,10 +197,6 @@ pub struct NgScopeArgs {
     /// Determine the number of DCIs contained in a single log file
     #[arg(long, required = false)]
     pub ng_log_dci_batch_size: Option<u64>,
-
-    /// rf_args such as setting serial (allowing configuration of which SDR to use)
-    #[arg(long, required = false)]
-    pub ng_rf_args: Option<String>,
 }
 
 //why is only one of the strings optional?
@@ -213,7 +209,6 @@ pub struct FlattenedNgScopeArgs {
     pub ng_start_process: bool,
     pub ng_log_dci: bool,
     pub ng_log_dci_batch_size: u64,
-    pub ng_rf_args: String,
 }
 
 #[derive(Args, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -536,9 +531,6 @@ impl NgScopeArgs {
         if self.ng_log_dci_batch_size.is_none() {
             self.ng_log_dci_batch_size = config_file.ng_log_dci_batch_size;
         }
-        if self.ng_rf_args.is_none() {
-            self.ng_rf_args = config_file.ng_rf_args;
-        }
     }
 }
 
@@ -622,7 +614,6 @@ impl FlattenedNgScopeArgs {
             ng_log_file: ng_args.ng_log_file,
             ng_log_dci: ng_args.ng_log_dci.unwrap(),
             ng_log_dci_batch_size: ng_args.ng_log_dci_batch_size.unwrap(),
-            ng_rf_args: ng_args.ng_rf_args.unwrap(),
         })
     }
 }
