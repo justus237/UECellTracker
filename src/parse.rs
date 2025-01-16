@@ -25,7 +25,6 @@ pub const DEFAULT_NG_LOG_FILE: &str = "./.ng_scope_log.txt";
 pub const DEFAULT_NG_START_PROCESS: bool = true;
 pub const DEFAULT_NG_LOG_DCI: bool = true;
 pub const DEFAULT_NG_LOG_DCI_BATCH_SIZE: u64 = 60000;
-pub const DEFAULT_NG_RF_ARGS: &str = "serial=3295B62";
 
 pub const DEFAULT_MATCHING_LOCAL_ADDR: &str = "0.0.0.0:9292";
 pub const DEFAULT_MATCHING_TRAFFIC_PATTERN: &[RntiMatchingTrafficPatternType] = &[RntiMatchingTrafficPatternType::A];
@@ -325,7 +324,6 @@ impl default::Default for Arguments {
                 ng_start_process: Some(DEFAULT_NG_START_PROCESS),
                 ng_log_dci: Some(DEFAULT_NG_LOG_DCI),
                 ng_log_dci_batch_size: Some(DEFAULT_NG_LOG_DCI_BATCH_SIZE),
-                ng_rf_args: Some(DEFAULT_NG_RF_ARGS.to_string()),
             }),
             rntimatching: Some(RntiMatchingArgs {
                 matching_local_addr: Some(DEFAULT_MATCHING_LOCAL_ADDR.to_string()),
